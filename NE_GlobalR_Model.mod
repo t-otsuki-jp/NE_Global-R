@@ -5,32 +5,32 @@
  *********************************************/
 
 //Emission case setting Case0=ref. 
-int		CASE = ...;
+int	CASE = ...;
 
 //Year
-int		Yr = ...;
+int	Yr = ...;
 
 //Tentative parameters
-int 	NKSt1 =24;								//Storage
-int 	NKSt2 =25;								//Storage
+int 	NKSt1 =24;					//Storage
+int 	NKSt2 =25;					//Storage
 float	FuelingStationCov	= 1.0;
 float	Max_Availability	= 0.1;
 float	Duration_Pumped 	= 6*0.9/1000;		//hour*availability/unit conversion to TWh
-float	Unit_Liion			= 0.9/1000;			//availability/unit conversion to TWh
-float	Unit_Molten			= 0.9/1000;			//availability/unit conversion to TWh
-float	Unit_H2				= 0.9/1000/11.63;	//availability/unit conversion to TWh to Mtoe
-float	CRate_Liion			= 1.0;
-float	ReserveMargin	    = 1.05;				//reserve margin
-float	DepResource			= 50;				//to avoid exploiting all the depleteable resources [year]
-float	Elec_Import			= -1;
+float	Unit_Liion		= 0.9/1000;		//availability/unit conversion to TWh
+float	Unit_Molten		= 0.9/1000;		//availability/unit conversion to TWh
+float	Unit_H2			= 0.9/1000/11.63;	//availability/unit conversion to TWh to Mtoe
+float	CRate_Liion		= 1.0;
+float	ReserveMargin		= 1.05;			//reserve margin
+float	DepResource		= 50;			//to avoid exploiting all the depleteable resources [year]
+float	Elec_Import		= -1;
 
 //other parameters defined inside the model
 //TZD,TZT,NKMO,NKCF,NKSF,IKFG[defined below]
 
-int	ID[0..15]			= ...;
-int	ZIT[0..7]			= ...;
-int	RGEI[0..1]			= ...;
-int	RGE					= ...;
+int	ID[0..15]		= ...;
+int	ZIT[0..7]		= ...;
+int	RGEI[0..1]		= ...;
+int	RGE			= ...;
 
 //number of model elements
 int	NND = ID[0];	//number of node
@@ -69,22 +69,22 @@ range NIT2r= 0..NIT2-1;
 range NAC2r= 0..NAC2-1;
 
 //string data
-string	ID_ND[NNDr]	 = ...;	//node label
-string	ID_RG[NRGr]	 = ...;	//region label
-string	ID_IT[NITr]	 = ...;	//item label
-string	ID_SIG[NITr] = ...;	//balance flag
-string	ID_AC[NACr]	 = ...;	//activity label
-string	ID_NK[NNKr]	 = ...;	//nodal facility label
-string	ID_IK[NIKr]	 = ...;	//inter-nodal facility label [maritime]
-string	ID_IKL[NIKLr]= ...;	//inter-nodal facility label [land]
-string	ID_YR[NYRr]	 = ...;	//year label
+string	ID_ND[NNDr]	= ...;	//node label
+string	ID_RG[NRGr]	= ...;	//region label
+string	ID_IT[NITr]	= ...;	//item label
+string	ID_SIG[NITr] 	= ...;	//balance flag
+string	ID_AC[NACr]	= ...;	//activity label
+string	ID_NK[NNKr]	= ...;	//nodal facility label
+string	ID_IK[NIKr]	= ...;	//inter-nodal facility label [maritime]
+string	ID_IKL[NIKLr]	= ...;	//inter-nodal facility label [land]
+string	ID_YR[NYRr]	= ...;	//year label
 
 int	RGD[NNDr][NRGr]	= ...;	//node-region definition matrix
 int	ID_ITM[NITr]	= ...;	//item balance flag
-int	ITMC1[NITr];			//item id -> item2
-int	ITMC2[NIT2r];			//item2 range -> item id
-int	ACTC1[NACr];			//activity id -> activity2
-int	ACTC2[NAC2r];			//activity2 -> activity id
+int	ITMC1[NITr];		//item id -> item2
+int	ITMC2[NIT2r];		//item2 range -> item id
+int	ACTC1[NACr];		//activity id -> activity2
+int	ACTC2[NAC2r];		//activity2 -> activity id
 int	ID_NDTY[NNDr]	= ...;	//node type
 
 float	ID_NDPD[NNDr] = ...;	//distance to port
@@ -94,14 +94,14 @@ float	ID_WRP[NWRr]  = ...;	//weather probability
 float	TW = 24./NTM;
 float	DW = 365./NDY;
 float	DT = 1./NDY/NTM;
-float	DTW[NWRr];				//time slot width ratio
-float	DTW2[NWRr];				//day width ratio
+float	DTW[NWRr];		//time slot width ratio
+float	DTW2[NWRr];		//day width ratio
 
 //Output activity 2
 int	OUT[0..2][0..1]	=...;
-int NoYR = OUT[0][0];
-int NoND = OUT[1][0];
-int NoDY = OUT[2][0];
+int	NoYR = OUT[0][0];
+int	NoND = OUT[1][0];
+int	NoDY = OUT[2][0];
 range	NoYRr = 0..NoYR-1;
 range	NoNDr = 0..NoND-1;
 range	NoDYr = 0..NoDY-1;
@@ -113,87 +113,87 @@ int	OUT_DY[NoDYr]	=...;
 //emission constraint
 float	RGE_D[0..RGE-1][NYRr] = ...;	//emission constraint
 float	CTAX_D[0..RGE-1][NYRr]= ...;	//carbon tax data
-float	CTAX[NRGr];				//carbon tax
+float	CTAX[NRGr];			//carbon tax
 
 //time difference
-int		ID_NDTM[NNDr] = ...;
+int	ID_NDTM[NNDr] = ...;
 float	ID_TZD[NTZr]  = ...;	//time zone definition
 range	TZr = 0..1;
-int		TZD[NTZr][NDYr][NTMr][NTZr][TZr];
-int		TZT[NTZr][NTMr][NTZr][TZr];
+int	TZD[NTZr][NDYr][NTMr][NTZr][TZr];
+int	TZT[NTZr][NTMr][NTZr][TZr];
 float	TZW[NTZr][NTZr][TZr];
 
 //activity flow [AC]
-int		AC[0..9][0..1]		= ...;
-int		ACT					= ...;
-int		ACI[0..AC[0][1]-1] = ...;					//activity index
-int		ACF[0..AC[1][0]-1][0..AC[1][1]-1] = ...;	//activity&item
-int		ID_ACM[NACr] = ...;							//item balance flag
+int	AC[0..9][0..1]	= ...;
+int	ACT		= ...;
+int	ACI[0..AC[0][1]-1] = ...;			//activity index
+int	ACF[0..AC[1][0]-1][0..AC[1][1]-1] = ...;	//activity&item
+int	ID_ACM[NACr] = ...;				//item balance flag
 float	ACD_1[0..AC[2][0]-1][0..AC[2][1]-1] = ...;	//activity data 1
 float	ACD_2[0..AC[3][0]-1][0..AC[3][1]-1] = ...;	//activity data 2
 float	ACD_3[0..AC[4][0]-1][0..AC[4][1]-1] = ...;	//activity data 3
-int		mat_i[NITr][NACr];
+int	mat_i[NITr][NACr];
 float	mat_c[NITr][NACr];
 float	ACCO[0..ACT-1][NNDr];
 float	ACCO1[0..ACT-1][NNDr];
-int		ACSL[0..NIT];
-int		ACSL2[0..NIT2];
-int		AC2FLG[0..NIT2-1];
-int		ACVR[0..ACT-1];
-int		ACVR2[0..ACT-1];
-int		NACCO2;
+int	ACSL[0..NIT];
+int	ACSL2[0..NIT2];
+int	AC2FLG[0..NIT2-1];
+int	ACVR[0..ACT-1];
+int	ACVR2[0..ACT-1];
+int	NACCO2;
 
 //activity limits
-int		AC_LM[0..1][0..1]	= ...;
-int		AC_LMI[0..AC_LM[0][1]-1] = ...;
+int	AC_LM[0..1][0..1]	= ...;
+int	AC_LMI[0..AC_LM[0][1]-1] = ...;
 float	AC_LMD[0..AC_LM[1][0]-1][0..AC_LM[1][1]-1] = ...;
 float	AC_LMT[NACr][NRGr];
 
 //nodal activity stock [NK]
-int		NK[0..27][0..1]		= ...;
-int		NKT					= ...;
-int		NKI[0..NK[0][1]-1] = ...;
-int		NKF[0..NK[1][0]-1][0..NK[1][1]-1] 	= ...;
-int		NKD_1[0..NK[2][0]-1][0..NK[2][1]-1] = ...;
-float	NKD_2[0..NK[3][0]-1][0..NK[3][1]-1]	= ...;
+int	NK[0..27][0..1]	= ...;
+int	NKT = ...;
+int	NKI[0..NK[0][1]-1] = ...;
+int	NKF[0..NK[1][0]-1][0..NK[1][1]-1] = ...;
+int	NKD_1[0..NK[2][0]-1][0..NK[2][1]-1] = ...;
+float	NKD_2[0..NK[3][0]-1][0..NK[3][1]-1] = ...;
 float	NKD_3[0..NK[4][0]-1][0..NK[4][1]-1] = ...;
 float	NK_LAF[0..NK[5][0]-1][0..NK[5][1]-1] = ...;	//location factor for capacity factor
 float	NK_LCC[0..NK[6][0]-1][0..NK[6][1]-1] = ...;	//location factor for capital cost
-int		NK_KI[0..NK[7][1]-1] = ...;
+int	NK_KI[0..NK[7][1]-1] = ...;
 float	NK_EKD[0..NK[8][0]-1][0..NK[8][1]-1] = ...;	//exogenous capacity
 float	NK_MKD[0..NK[9][0]-1][0..NK[9][1]-1] = ...;	//maximum capacity
 
-int		NKTY[NNKr];
-int		NKOPI[NNKr];
-int		NKSL[0..NNK];
-int		NKVR[0..NKT-1];
-int		NKVR2[0..NKT-1];
-int		mat_k[NNKr][NACr];
-int		NKLF[NNKr][NYRr][NYRr];				//lifetime matrix
-float	NKAF[NNKr][NNDr];					//availability
-float	NKAF2[NNKr][NNDr][NDYr][NWRr][NTMr];//availability
-float	NKCC[NNKr][NNDr];					//capital costs
-float	NKEK[NNKr][NNDr];					//exogenous capacity
-float	NKMK[NNKr][NNDr];					//maximum capacity
-float	NKCF[NNKr][NNDr][0..1];				//average capacity factor and max availability
-float	NKSF[NWRr];							//stored energy factor
+int	NKTY[NNKr];
+int	NKOPI[NNKr];
+int	NKSL[0..NNK];
+int	NKVR[0..NKT-1];
+int	NKVR2[0..NKT-1];
+int	mat_k[NNKr][NACr];
+int	NKLF[NNKr][NYRr][NYRr];			//lifetime matrix
+float	NKAF[NNKr][NNDr];			//availability
+float	NKAF2[NNKr][NNDr][NDYr][NWRr][NTMr];	//availability
+float	NKCC[NNKr][NNDr];			//capital costs
+float	NKEK[NNKr][NNDr];			//exogenous capacity
+float	NKMK[NNKr][NNDr];			//maximum capacity
+float	NKCF[NNKr][NNDr][0..1];			//average capacity factor and max availability
+float	NKSF[NWRr];				//stored energy factor
 
 //nodalCapacity_TimeProfile[NK_TP]
-int		NK_TPN				= ...;
-int		NK_TP[0..1][0..1]	= ...;
-int		NK_TPI[0..NK_TP[0][0]-1][0..NK_TP[0][1]-1] = ...;
+int	NK_TPN			= ...;
+int	NK_TP[0..1][0..1]	= ...;
+int	NK_TPI[0..NK_TP[0][0]-1][0..NK_TP[0][1]-1] = ...;
 float	NK_TPD[0..NK_TP[1][0]-1][0..NK_TP[1][1]-1] = ...;
 float	NK_TPD2[0..NK_TPN*NND-1][NDYr][NWRr][NTMr];
 
 //NK_Operational_information[NK_OP]
-int		NK_OP[0..3][0..1]	= ...;
-int		NNKMS  = NK_OP[1][0];	//number of maintenance schedule
+int	NK_OP[0..3][0..1]	= ...;
+int	NNKMS  = NK_OP[1][0];		//number of maintenance schedule
 range	NNKMSr = 0..NNKMS-1;
-int		NNKOP  = NK_OP[2][1];
+int	NNKOP  = NK_OP[2][1];
 range	NNKOPr = 0..NNKOP-1;
 
-int		NK_OPI[NNKOPr] = ...;
-int		NK_MSI[0..NK_OP[0][1]-1] = ...;
+int	NK_OPI[NNKOPr] = ...;
+int	NK_MSI[0..NK_OP[0][1]-1] = ...;
 float	NK_MSD[0..NK_OP[1][0]-1][0..NK_OP[1][1]-1] = ...;
 float	NK_OPD[0..NK_OP[3][0]-1][0..NK_OP[3][1]-1] = ...;
 
@@ -205,68 +205,68 @@ float	NKMO[NNKOPr][0..1];		//share of DSS and minimum output rate
 
 //Maritime trade stock[IK]
 int 	IK[0..5][0..1]		= ...;
-int		IKI[0..IK[0][1]-1] 	= ...;
-int		IKF[0..IK[1][0]-1][0..IK[1][1]-1] = ...;
-int		IKF2[0..IK[1][0]-1][0..IK[1][1]-1];
-int		IKT[0..IK[2][1]-1] = ...;
-int		IKC[0..IK[3][1]-1] = ...;
+int	IKI[0..IK[0][1]-1] 	= ...;
+int	IKF[0..IK[1][0]-1][0..IK[1][1]-1] = ...;
+int	IKF2[0..IK[1][0]-1][0..IK[1][1]-1];
+int	IKT[0..IK[2][1]-1] = ...;
+int	IKC[0..IK[3][1]-1] = ...;
 float	IKD_1[0..IK[4][0]-1][0..IK[4][1]-1] = ...;
 float	IKD_2[0..IK[5][0]-1][0..IK[5][1]-1] = ...;
 
 //maritime distance and existing capacity between nodes
 int 	IK_DK[0..6][0..1]	= ...;
-int		IK_DKI[0..IK_DK[0][0]-1][0..IK_DK[0][1]-1] = ...;
-int		IK_EKI[0..IK_DK[3][0]-1] = ...;
-int		IK_MKI[0..IK_DK[5][0]-1] = ...;
+int	IK_DKI[0..IK_DK[0][0]-1][0..IK_DK[0][1]-1] = ...;
+int	IK_EKI[0..IK_DK[3][0]-1] = ...;
+int	IK_MKI[0..IK_DK[5][0]-1] = ...;
 float	IK_DSD[0..IK_DK[2][0]-1][0..IK_DK[2][1]-1] = ...;
 float	IK_EKD[0..IK_DK[4][0]-1][0..IK_DK[4][1]-1] = ...;
 float	IK_MKD[0..IK_DK[6][0]-1][0..IK_DK[6][1]-1] = ...;
 string	IK_DSI[0..IK_DK[1][0]-1] = ...;
 
 //number of maritime routes
-int		NRM	 = IK_DK[0][1];
+int	NRM	 = IK_DK[0][1];
 range	NRMr = 0..NRM-1;
 
 //land trade stock[IKL]
-int		IKL[0..5][0..1]		= ...;
-int		IKLI	[0..IKL[0][1]-1] = ...;
-int		IKLF	[0..IKL[1][0]-1][0..IKL[1][1]-1] = ...;
-int		IKLF2	[0..IKL[1][0]-1][0..IKL[1][1]-1];
-int		IKLT	[0..IKL[2][1]-1] = ...;
-int		IKLC	[0..IKL[3][1]-1] = ...;
-float	IKLD_1	[0..IKL[4][0]-1][0..IKL[4][1]-1] = ...;
-float	IKLD_2	[0..IKL[5][0]-1][0..IKL[5][1]-1] = ...;
+int	IKL[0..5][0..1]		= ...;
+int	IKLI[0..IKL[0][1]-1] = ...;
+int	IKLF[0..IKL[1][0]-1][0..IKL[1][1]-1] = ...;
+int	IKLF2[0..IKL[1][0]-1][0..IKL[1][1]-1];
+int	IKLT[0..IKL[2][1]-1] = ...;
+int	IKLC[0..IKL[3][1]-1] = ...;
+float	IKLD_1[0..IKL[4][0]-1][0..IKL[4][1]-1] = ...;
+float	IKLD_2[0..IKL[5][0]-1][0..IKL[5][1]-1] = ...;
 //land Distance and existing capacity between nodes
-int		IKL_DK[0..6][0..1]	= ...;
-int		IKL_DKI[0..IKL_DK[0][0]-1][0..IKL_DK[0][1]-1] = ...;
-int		IKL_EKI[0..IKL_DK[3][0]-1] = ...;
-int		IKL_MKI[0..IKL_DK[5][0]-1] = ...;
+int	IKL_DK[0..6][0..1]	= ...;
+int	IKL_DKI[0..IKL_DK[0][0]-1][0..IKL_DK[0][1]-1] = ...;
+int	IKL_EKI[0..IKL_DK[3][0]-1] = ...;
+int	IKL_MKI[0..IKL_DK[5][0]-1] = ...;
 float	IKL_DSD[0..IKL_DK[2][0]-1][0..IKL_DK[2][1]-1] = ...;
 float	IKL_EKD[0..IKL_DK[4][0]-1][0..IKL_DK[4][1]-1] = ...;
 float	IKL_MKD[0..IKL_DK[6][0]-1][0..IKL_DK[6][1]-1] = ...;
 //number of land routes
-int		NRL  = IKL_DK[0][1];
+int	NRL  = IKL_DK[0][1];
 range	NRLr = 0..NRL-1;
 
 //maritime trade
-int		IKTY[NIKr];
-int		IKT2[NIKr];
-int		IKFG[NIKr][NRMr];				//flag
-int		IKLFM[NIKr][NYRr][NYRr];		//lifetime matrix
-int		MAT[0..1][NRMr][NNDr];
+int	IKTY[NIKr];
+int	IKT2[NIKr];
+int	IKFG[NIKr][NRMr];		//flag
+int	IKLFM[NIKr][NYRr][NYRr];	//lifetime matrix
+int	MAT[0..1][NRMr][NNDr];
 float	IKDS[0..IK_DK[2][0]-1][NRMr]; 	//distance
-float	IKEF[NIKr][NRMr];				//efficiency
+float	IKEF[NIKr][NRMr];		//efficiency
 float	IKAF[NIKr][NRMr];	//availability
 float	IKCC[NIKr][NRMr];	//capital cost
 float	IKVC[NIKr][NRMr];	//variable cost
 float	IKEK[NIKr][NRMr];	//existing capacity
 float	IKMK[NIKr][NRMr];	//maximum capacity
 //land trade
-int		IKLTY[NIKLr];
-int		IKLT2[NIKLr];
-int		IKLFG[NIKLr][NRLr];		//flag
-int		IKLLFM[NIKLr][NYRr][NYRr];	//lifetime matrix
-int		MATL[0..1][NRLr][NNDr];
+int	IKLTY[NIKLr];
+int	IKLT2[NIKLr];
+int	IKLFG[NIKLr][NRLr];		//flag
+int	IKLLFM[NIKLr][NYRr][NYRr];	//lifetime matrix
+int	MATL[0..1][NRLr][NNDr];
 float	IKLDS[0..IKL_DK[2][0]-1][NRLr]; //distance
 float	IKLEF[NIKLr][NRLr];	//efficiency
 float	IKLAF[NIKLr][NRLr];	//availability
@@ -276,15 +276,15 @@ float	IKLEK[NIKLr][NRLr]; 	//existing capacity
 float	IKLMK[NIKLr][NRLr]; 	//maximum capacity
 
 //finalConsumption[FC]
-int		FC[0..4][0..1]		= ...;
-int		FCI[0..FC[0][1]-1] = ...;
-int		FCF[0..FC[1][1]-1] = ...;
-int		FCS[0..FC[2][0]-1][0..FC[2][1]-1] = ...;
+int	FC[0..4][0..1]	= ...;
+int	FCI[0..FC[0][1]-1] = ...;
+int	FCF[0..FC[1][1]-1] = ...;
+int	FCS[0..FC[2][0]-1][0..FC[2][1]-1] = ...;
 float	FCD[0..FC[3][0]-1][0..FC[3][1]-1] = ...;
 float	FCD_2[0..FC[4][0]-1][0..FC[4][1]-1] = ...;
-int		FC_LD[0..2][0..1]	= ...;
-int		FC_LDI1[0..FC_LD[0][0]-1][0..FC_LD[0][1]-1] = ...;
-int		FC_LDI2[0..FC_LD[1][0]-1][0..FC_LD[1][1]-1] = ...;
+int	FC_LD[0..2][0..1]	= ...;
+int	FC_LDI1[0..FC_LD[0][0]-1][0..FC_LD[0][1]-1] = ...;
+int	FC_LDI2[0..FC_LD[1][0]-1][0..FC_LD[1][1]-1] = ...;
 float	FC_LDD[0..FC_LD[2][0]-1][0..FC_LD[2][1]-1]  = ...;
 float	FC_LDD2[NFCr][NNDr][NYRr][NDYr][NTMr];
 
@@ -293,23 +293,23 @@ float	RHS0[NITr][NNDr];
 float	RHS2[NIT2r][NNDr][NDYr][NWRr][NTMr];
 
 //resource[RS]
-int		RS[0..4][0..1]	   = ...;
-int		RSI[0..RS[0][1]-1] = ...;
-int		RSF[0..RS[1][1]-1] = ...;
-int		RST[0..RS[2][1]-1] = ...;
-int		RSF0[NRSr];
-int		RST0[NRSr];
+int	RS[0..4][0..1]	   = ...;
+int	RSI[0..RS[0][1]-1] = ...;
+int	RSF[0..RS[1][1]-1] = ...;
+int	RST[0..RS[2][1]-1] = ...;
+int	RSF0[NRSr];
+int	RST0[NRSr];
 float	RSD[0..RS[3][0]-1][0..RS[3][1]-1]  = ...;
 float	RSD0[NRSr][NNDr];
 float	RD_RS[0..RS[4][0]-1][0..RS[4][1]-1]  = ...;
 
 //recursive dynamic [RD]
-int		RD[0..5][0..1] = ...;
-int		RD_NK[0..RD[0][0]-1][0..RD[0][1]-1] = ...;
+int	RD[0..5][0..1] = ...;
+int	RD_NK[0..RD[0][0]-1][0..RD[0][1]-1] = ...;
 float	RD_NKD[0..RD[1][0]-1][0..RD[1][1]-1] = ...;
-int		RD_IK[0..RD[2][0]-1][0..RD[2][1]-1] = ...;
+int	RD_IK[0..RD[2][0]-1][0..RD[2][1]-1] = ...;
 float	RD_IKD[0..RD[3][0]-1][0..RD[3][1]-1] = ...;
-int		RD_IKL[0..RD[4][0]-1][0..RD[4][1]-1] = ...;
+int	RD_IKL[0..RD[4][0]-1][0..RD[4][1]-1] = ...;
 float	RD_IKLD[0..RD[5][0]-1][0..RD[5][1]-1] = ...;
 float	RDNK[NNKr][NNDr][NYRr];
 float	RDNIK[NIKr][NRMr][NYRr];
