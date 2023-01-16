@@ -51,22 +51,22 @@ int	NIT2 = ID[14];	//number of item#2
 int	NAC2 = ID[15];	//number of activity#2
 
 //range
-range NNDr = 0..NND-1;
-range NRGr = 0..NRG-1;
-range NITr = 0..NIT-1;
-range NACr = 0..NAC-1;
-range NNKr = 0..NNK-1;
-range NIKr = 0..NIK-1;
-range NIKLr= 0..NIKL-1;
-range NFCr = 0..NFC-1;
-range NRSr = 0..NRS-1;
-range NYRr = 0..NYR-1;
-range NDYr = 0..NDY-1;
-range NWRr = 0..NWR-1;
-range NTMr = 0..NTM-1;
-range NTZr = 0..NTZ-1;
-range NIT2r= 0..NIT2-1;
-range NAC2r= 0..NAC2-1;
+range 	NNDr = 0..NND-1;
+range 	NRGr = 0..NRG-1;
+range 	NITr = 0..NIT-1;
+range 	NACr = 0..NAC-1;
+range 	NNKr = 0..NNK-1;
+range 	NIKr = 0..NIK-1;
+range 	NIKLr= 0..NIKL-1;
+range 	NFCr = 0..NFC-1;
+range 	NRSr = 0..NRS-1;
+range 	NYRr = 0..NYR-1;
+range 	NDYr = 0..NDY-1;
+range 	NWRr = 0..NWR-1;
+range 	NTMr = 0..NTM-1;
+range 	NTZr = 0..NTZ-1;
+range 	NIT2r= 0..NIT2-1;
+range 	NAC2r= 0..NAC2-1;
 
 //string data
 string	ID_ND[NNDr]	= ...;	//node label
@@ -872,41 +872,41 @@ execute parameters{
 //------------------------------------------------------------------------
 
 //variables
-dvar float+ obj;				//million USD	
-dvar float+ fx_cst;				//fixed cost (capital+fixed O&M)
-dvar float+ fxnk_cst[NNDr];		//fixed(NK)
-dvar float+ fxik_cst[NRMr];		//fixed(IK)
+dvar float+ obj;		//million USD	
+dvar float+ fx_cst;		//fixed cost (capital+fixed O&M)
+dvar float+ fxnk_cst[NNDr];	//fixed(NK)
+dvar float+ fxik_cst[NRMr];	//fixed(IK)
 dvar float+ fxikl_cst[NRLr];	//fixed(IK)
-dvar float+ fu_cst;			//fuel cost
-dvar float+ ov_cst;			//other variable cost
-dvar float+	sv_cst;			//penalty for energy saving (loss of consumer utility)
-dvar float+	cx_cst;			//carbon tax
+dvar float+ fu_cst;		//fuel cost
+dvar float+ ov_cst;		//other variable cost
+dvar float+ sv_cst;		//penalty for energy saving (loss of consumer utility)
+dvar float+ cx_cst;		//carbon tax
 
 dvar float  z0[NITr][NNDr];
 dvar float  z2[NIT2r][NNDr][NDYr][NWRr][NTMr];
 dvar float  a2[NIT2r][NNDr][NDYr][NWRr][NTMr];
-dvar float  ze[NRGr];							  //emissions
-dvar float	ztec[NRGr];							  //total electricity consumption (including net exports)
-dvar float	zelcim[NRGr];						  //electricity net imports)
-dvar float+ xac0[NACr][NNDr];				  	  //activity 
-dvar float+ xac2[NAC2r][NNDr][NDYr][NWRr][NTMr];  //activity (activity type 2)
-dvar float+ xmx2[NNKOPr][NNDr][NDYr];		  	  //maximum output 
-dvar float+ ank[NNKOPr][NNDr][NDYr]; 			  //available capacity 
-dvar float+ xnk[NNKr][NNDr];					  //total nodal capacity
-dvar float+ xnnk[NNKr][NNDr];					  //newly added nodal capacity
+dvar float  ze[NRGr];				//emissions
+dvar float  ztec[NRGr];				//total electricity consumption (including net exports)
+dvar float  zelcim[NRGr];			//electricity net imports)
+dvar float+ xac0[NACr][NNDr];			//activity 
+dvar float+ xac2[NAC2r][NNDr][NDYr][NWRr][NTMr];//activity (activity type 2)
+dvar float+ xmx2[NNKOPr][NNDr][NDYr];		//maximum output 
+dvar float+ ank[NNKOPr][NNDr][NDYr]; 		//available capacity 
+dvar float+ xnk[NNKr][NNDr];			//total nodal capacity
+dvar float+ xnnk[NNKr][NNDr];			//newly added nodal capacity
 
-dvar float+ xtp0[NIKr][NRMr];	  		  		  //inter-nodal activity
-dvar float+ xtn0[NIKr][NRMr];	  		  		  //inter-nodal activity
-dvar float+ xtp2[NIKr][NRMr][NDYr][NTMr]; 		  //inter-nodal activity (activity type 2)
-dvar float+ xtn2[NIKr][NRMr][NDYr][NTMr];	 	  //inter-nodal activity (activity type 2)
+dvar float+ xtp0[NIKr][NRMr];	  		//inter-nodal activity
+dvar float+ xtn0[NIKr][NRMr];	  		//inter-nodal activity
+dvar float+ xtp2[NIKr][NRMr][NDYr][NTMr]; 	//inter-nodal activity (activity type 2)
+dvar float+ xtn2[NIKr][NRMr][NDYr][NTMr];	//inter-nodal activity (activity type 2)
 dvar float+ xik[NIKr][NRMr];				
 dvar float+ xeik[NIKr][NRMr];				
 dvar float+ xnik[NIKr][NRMr];				
 
-dvar float+ xtpl0[NIKLr][NRLr];	  		  	   //inter-nodal activity
-dvar float+ xtnl0[NIKLr][NRLr];	  		  	   //inter-nodal activity
-dvar float+ xtpl2[NIKLr][NRLr][NDYr][NTMr];      //inter-nodal activity (activity type 2)
-dvar float+ xtnl2[NIKLr][NRLr][NDYr][NTMr];      //inter-nodal activity (activity type 2)
+dvar float+ xtpl0[NIKLr][NRLr];	  		//inter-nodal activity
+dvar float+ xtnl0[NIKLr][NRLr];	  		//inter-nodal activity
+dvar float+ xtpl2[NIKLr][NRLr][NDYr][NTMr];     //inter-nodal activity (activity type 2)
+dvar float+ xtnl2[NIKLr][NRLr][NDYr][NTMr];	//inter-nodal activity (activity type 2)
 dvar float+ xikl[NIKLr][NRLr];					   
 dvar float+ xnikl[NIKLr][NRLr];				   
 
@@ -930,8 +930,8 @@ subject to {
 	fx_cst == sum(r in NRMr)fxik_cst[r]+sum(r in NRLr)fxikl_cst[r]+sum(n in NNDr)fxnk_cst[n];
 	fu_cst == sum(n in NNDr)z0[ZIT[0]][n];
 	ov_cst == sum(n in NNDr)z0[ZIT[1]][n]
-							+sum(i in NIKr,r in NRMr)(xtp0[i][r]+xtn0[i][r])*IKVC[i][r]
-							+sum(i in NIKLr,r in NRLr)(xtpl0[i][r]+xtnl0[i][r])*IKLVC[i][r];
+				+sum(i in NIKr,r in NRMr)(xtp0[i][r]+xtn0[i][r])*IKVC[i][r]
+				+sum(i in NIKLr,r in NRLr)(xtpl0[i][r]+xtnl0[i][r])*IKLVC[i][r];
 	sv_cst == sum(n in NNDr)z0[ZIT[2]][n];
 	cx_cst == sum(r in NRGr)ze[r]*CTAX[r];
 
