@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings version="2">
+  <category name="cplex">
+    <setting name="lpmethod" value="4"/>
+    <setting name="qpmethod" value="4"/>
+    <setting name="baralg" value="2"/>
+    <setting name="barepcomp" value="1.0E-7"/>
+    <setting name="workmem" value="1.0E9"/>
+  </category>
+  <category name="run">
+    <setting name="run_displaysolution" value="false"/>
+    <setting name="run_displayrelaxations" value="false"/>
+    <setting name="run_displayconflicts" value="false"/>
+    <setting name="run_displayprofile" value="false"/>
+  </category>
+</settings>

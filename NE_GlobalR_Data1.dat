@@ -1,0 +1,160 @@
+/*********************************************
+ * OPL 12.5 Data
+ * Author: otsuki
+ * Creation Date: 2020/07/24 at 14:43:03
+ *********************************************/
+
+SheetConnection sheetin("NE_GlobalR_Input.xlsx");
+CASE	from SheetRead(sheetin,"CASE");
+ID      from SheetRead(sheetin,"ID");
+ID_ND   from SheetRead(sheetin,"ID_ND");
+ID_RG   from SheetRead(sheetin,"ID_RG");
+ID_IT	from SheetRead(sheetin,"ID_IT");
+ID_SIG	from SheetRead(sheetin,"ID_SIG");
+ID_AC   from SheetRead(sheetin,"ID_AC");
+ID_ACM	from SheetRead(sheetin,"ID_ACM");
+ID_NK   from SheetRead(sheetin,"ID_NK");
+ID_IK   from SheetRead(sheetin,"ID_IK");
+ID_IKL  from SheetRead(sheetin,"ID_IKL");
+ID_NDTY	from SheetRead(sheetin,"ID_NDTY");
+ID_NDTM	from SheetRead(sheetin,"ID_NDTM");
+ID_NDPD	from SheetRead(sheetin,"ID_NDPD");
+ID_ITM	from SheetRead(sheetin,"ID_ITM");
+ID_YR	from SheetRead(sheetin,"ID_YR");
+ID_YRD	from SheetRead(sheetin,"ID_YRD");
+ID_YRD2	from SheetRead(sheetin,"ID_YRD2");
+ID_TZD	from SheetRead(sheetin,"ID_TZD");
+ID_WRP	from SheetRead(sheetin,"ID_WRP");
+RGD	   	from SheetRead(sheetin,"RGD");
+ZIT   	from SheetRead(sheetin,"ZIT");
+RGEI   	from SheetRead(sheetin,"RGEI");
+
+///Output-Activity2
+OUT		from SheetRead(sheetin,"OUT");
+OUT_YR	from SheetRead(sheetin,"OUT_YR");
+OUT_ND	from SheetRead(sheetin,"OUT_ND");
+OUT_DY	from SheetRead(sheetin,"OUT_DY");
+
+///Emission constraint
+RGE		from SheetRead(sheetin,"RGE");
+RGE_D	from SheetRead(sheetin,"RGE_D");
+CTAX_D	from SheetRead(sheetin,"CTAX_D");
+
+////Activity(flow)
+AC     from SheetRead(sheetin,"AC");
+ACI    from SheetRead(sheetin,"ACI");
+ACF    from SheetRead(sheetin,"ACF");
+ACD_1  from SheetRead(sheetin,"ACD_1");
+ACD_2  from SheetRead(sheetin,"ACD_2");
+ACD_3  from SheetRead(sheetin,"ACD_3");
+ACT	   from SheetRead(sheetin,"ACT");
+
+AC_LM  from SheetRead(sheetin,"AC_LM");
+AC_LMI from SheetRead(sheetin,"AC_LMI");
+AC_LMD from SheetRead(sheetin,"AC_LMD");
+
+////Stock(nodal)
+NK     from SheetRead(sheetin,"NK");
+NKI    from SheetRead(sheetin,"NKI");
+NKF    from SheetRead(sheetin,"NKF");
+NKD_1  from SheetRead(sheetin,"NKD_1");
+NKD_2  from SheetRead(sheetin,"NKD_2");
+NKD_3  from SheetRead(sheetin,"NKD_3");
+NKT    from SheetRead(sheetin,"NKT");
+NK_KI  from SheetRead(sheetin,"NK_KI");
+NK_EKD from SheetRead(sheetin,"NK_EKD");
+NK_MKD from SheetRead(sheetin,"NK_MKD");
+NK_LAF from SheetRead(sheetin,"NK_LAF");
+NK_LCC from SheetRead(sheetin,"NK_LCC");
+
+//Stock_output_profile
+NK_TP	from SheetRead(sheetin,"NK_TP");
+NK_TPI	from SheetRead(sheetin,"NK_TPI");
+NK_TPD	from SheetRead(sheetin,"NK_TPD");
+NK_TPN	from SheetRead(sheetin,"NK_TPN");
+
+//Stock_operational_info
+NK_OP  from SheetRead(sheetin,"NK_OP");
+NK_MSI from SheetRead(sheetin,"NK_MSI");
+NK_MSD from SheetRead(sheetin,"NK_MSD");
+NK_OPI from SheetRead(sheetin,"NK_OPI");
+NK_OPD from SheetRead(sheetin,"NK_OPD");
+
+////Trade
+IK     from SheetRead(sheetin,"IK");
+IKI    from SheetRead(sheetin,"IKI");
+IKF    from SheetRead(sheetin,"IKF");
+IKT    from SheetRead(sheetin,"IKT");
+IKC    from SheetRead(sheetin,"IKC");
+IKD_1  from SheetRead(sheetin,"IKD_1");
+IKD_2  from SheetRead(sheetin,"IKD_2");
+IK_DK    from SheetRead(sheetin,"IK_DK");
+IK_DKI   from SheetRead(sheetin,"IK_DKI");
+IK_DSI   from SheetRead(sheetin,"IK_DSI");
+IK_DSD   from SheetRead(sheetin,"IK_DSD");
+IK_EKI   from SheetRead(sheetin,"IK_EKI");
+IK_EKD   from SheetRead(sheetin,"IK_EKD");
+IK_MKI   from SheetRead(sheetin,"IK_MKI");
+IK_MKD   from SheetRead(sheetin,"IK_MKD");
+
+IKL     from SheetRead(sheetin,"IKL");
+IKLI    from SheetRead(sheetin,"IKLI");
+IKLF    from SheetRead(sheetin,"IKLF");
+IKLT    from SheetRead(sheetin,"IKLT");
+IKLC    from SheetRead(sheetin,"IKLC");
+IKLD_1  from SheetRead(sheetin,"IKLD_1");
+IKLD_2  from SheetRead(sheetin,"IKLD_2");
+IKL_DK    from SheetRead(sheetin,"IKL_DK");
+IKL_DKI   from SheetRead(sheetin,"IKL_DKI");
+IKL_DSD   from SheetRead(sheetin,"IKL_DSD");
+IKL_EKI   from SheetRead(sheetin,"IKL_EKI");
+IKL_EKD   from SheetRead(sheetin,"IKL_EKD");
+IKL_MKI   from SheetRead(sheetin,"IKL_MKI");
+IKL_MKD   from SheetRead(sheetin,"IKL_MKD");
+
+////Final consumption
+FC     from SheetRead(sheetin,"FC");
+FCI    from SheetRead(sheetin,"FCI");
+FCF    from SheetRead(sheetin,"FCF");
+FCS    from SheetRead(sheetin,"FCS");
+FCD    from SheetRead(sheetin,"FCD");
+FCD_2  from SheetRead(sheetin,"FCD_2");
+FC_LD  from SheetRead(sheetin,"FC_LD");
+FC_LDI1 from SheetRead(sheetin,"FC_LDI1");
+FC_LDI2 from SheetRead(sheetin,"FC_LDI2");
+FC_LDD from SheetRead(sheetin,"FC_LDD");
+
+////Resource
+RS     from SheetRead(sheetin,"RS");
+RSI    from SheetRead(sheetin,"RSI");
+RSF    from SheetRead(sheetin,"RSF");
+RST    from SheetRead(sheetin,"RST");
+RSD    from SheetRead(sheetin,"RSD");
+RD_RS  from SheetRead(sheetin,"RD_RS");
+
+//Recursive dynamic
+RD		from SheetRead(sheetin,"RD");
+RD_NK	from SheetRead(sheetin,"RD_NK");
+RD_NKD	from SheetRead(sheetin,"RD_NKD");
+RD_IK	from SheetRead(sheetin,"RD_IK");
+RD_IKD	from SheetRead(sheetin,"RD_IKD");
+RD_IKL	from SheetRead(sheetin,"RD_IKL");
+RD_IKLD	from SheetRead(sheetin,"RD_IKLD");
+
+SheetConnection sheetin2("NE_GlobalR_Output_Summary.xlsx");
+R_COST	from SheetRead(sheetin2,"R_COST");
+
+SheetConnection sheetout("NE_GlobalR_Output_Summary.xlsx");
+//Results
+R_Z0   to SheetWrite(sheetout,"Z0!C2:C25121");
+R_AC   to SheetWrite(sheetout,"AC!C2:C43361");
+R_NK   to SheetWrite(sheetout,"NK!C2:C20161");
+R_Z_Dual    to SheetWrite(sheetout,"Z_Dual!C2:C14901");
+R_COST		to SheetWrite(sheetout,"R_COST");
+
+SheetConnection sheetout4("NE_GlobalR_Input.xlsx");
+FCD_2  to SheetWrite(sheetout4,"FCD_2");
+RD_NKD to SheetWrite(sheetout4,"RD_NKD");
+RD_IKD to SheetWrite(sheetout4,"RD_IKD");
+RD_IKLD to SheetWrite(sheetout4,"RD_IKLD");
+RD_RS  to SheetWrite(sheetout4,"RD_RS");
