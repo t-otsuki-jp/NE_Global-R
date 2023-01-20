@@ -1,0 +1,13 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Otsuki"
+    given-names: "Takashi"
+    orcid: "https://orcid.org/0000-0002-0075-510X"
+  - family-names: "Komiyama"
+    given-names: "Ryoichi"
+  - family-names: "Fujii"
+    given-names: "Yasumasa"
+title: "Global Energy System Model NE_Global-R"
+version: v0.0
+date-released: 2023-01-20
