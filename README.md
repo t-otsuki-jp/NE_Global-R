@@ -18,7 +18,7 @@ The New Earth_Global-Recursive model (NE_Global-R) is a recursive-dynamic global
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7553055.svg)](https://doi.org/10.5281/zenodo.7553055)
 
-Shield: [![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
+[![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License][cc-by-nc-nd].
