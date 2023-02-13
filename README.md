@@ -15,9 +15,11 @@ The New Earth_Global-Recursive model (NE_Global-R) is a recursive-dynamic global
 <li>NE_GlobalR_Output2_R0: Hourly level power dispatch results at selected times and nodes in 2015
 <li>NE_GlobalR_Output2_R4: Hourly level power dispatch results at selected times and nodes in 2050
 
-## DOI
+## DOI and Citation
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7553055.svg)](https://doi.org/10.5281/zenodo.7553055)
-  
+
+Please cite as T.Otsuki, R.Komiyama and Y.Fujii (2023), Temporally Disaggregated Global Energy System Model NE_Global-R, DOI: 10.5281/zenodo.7553055, License: CC BY-NC-ND 4.0
+
 ## License
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License][cc-by-nc-nd].
